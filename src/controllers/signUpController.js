@@ -19,6 +19,11 @@ routes.post('/', async (request, response) => {
                 return;
             }
 
+            const token = jwt.sign(tokenUser, 60 * 30);
+
+            const newDesign = {...designCheck, token}
+
+
             response.status(200).send({ designCheck });
         }
     } catch (error) {

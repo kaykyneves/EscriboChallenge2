@@ -7,7 +7,7 @@ const sign = (payload, expiresIn = '1h') => {
   return jwt.sign(payload, secretKey, { expiresIn });
 };
 
-const verifyToken = (req, res, next) => {
+export const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
 
   if (!token) {
@@ -26,5 +26,5 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-export default { verifyToken, sign };
+export default {  sign };
 

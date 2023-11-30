@@ -7,7 +7,12 @@ routes.post('/', async (request, response) => {
     try{
         const{nome, email, senha, telefones} = request.body;
 
-        const criptoSenha = await bcrypt.criptoPassword(senha);
+        const criptoSenha = await bcrypt.criptoPass 
+        
+        
+        
+        
+        word(senha);
         const phones = telefones.map(phone => {
             return {
                 telefone: phone.telefone,
@@ -20,7 +25,7 @@ routes.post('/', async (request, response) => {
         const tokenUser = { nome: nome, email: email };
 
         // Gere o token
-        const token = jwt.sign(tokenUser, '1h');
+        const token = jwt.sign(tokenUser, 60 * 30);
 
         const {message, designCheck} = await db.createEmployee(nome, email, criptoSenha, phones, token);
 
