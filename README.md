@@ -44,6 +44,3 @@ PARA CONSEGUIR BUSCAR O USUARIO, VOCÊ TERÁ QUE VALIDAR O TOKEN JWT RECEBIDO NO
 Coloque o AUTH TYPE (Estou utilizando o INSOMNIA), no formato BEARER e passe o token JWT recebido, se o token for válido, irá buscar as informações do usúario desejado.
 
 
-###############################################################################################################
-
-Infelizmente eu não consegui finalizar o desafio por completo, faltando os testes unitários e alocar num servidor (o que eu mais tive dificuldades), mas como as 72 horas já se passaram, estou enviando só o reposório, e peço desculpas pela falta dos dois últimos requisitos. Mas peço que testem a aplicação, pois está retornando tudo certo e perfeito, obrigado.
