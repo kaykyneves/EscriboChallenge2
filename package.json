@@ -9,8 +9,7 @@
     "npm": "10.2.0"
   },
   "scripts": {
-    "start": "nodemon src/index.js",
-    "build": "webpack --mode production"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
