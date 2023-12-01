@@ -1,33 +1,41 @@
 import express, { request, response } from 'express';
 import db from '../services/signUpServices.js';
 import bcrypt from '../helpers/bcryptHelper.js';
+import jwt from '../middlewares/jwt.js';
 const routes = express.Router();
-
 routes.post('/', async (request, response) => {
-    try {
-        const { email, senha } = request.body;
+    try{
+        const{nome, email, senha, telefones} = request.body;
 
-        const { message, designCheck, query_password } = await db.login(email, senha);
+        const criptoSenha = await bcrypt.criptoPassword(senha);
+        const phones = telefones.map(phone => {
+            return {
+                telefone: phone.telefone,
+                
+                ddd: phone.ddd
+            };
+          
+        });
+
+        const tokenUser = { nome: nome, email: email };
+
+        
+
+        const token = jwt.sign(tokenUser, 60 * 30);
+        const {message, designCheck} = await db.createEmployee(nome, email, criptoSenha, phones);
+        const newDesign = {...designCheck, token}
+
         if (message === 0) {
-            response.status(401).send({ message: "Usuário e/ou senha inválidos" });
-        } else {
-
-            const verifySenha = await bcrypt.passwordCheck(senha, query_password);
-     
-            if (!verifySenha) {
-                response.status(401).send('usuario e/ou senha inválidos!');
-                return;
-            }
-
-            const token = jwt.sign(tokenUser, 60 * 30);
-
-            const newDesign = {...designCheck, token}
-
-
-            response.status(200).send({ designCheck });
+            response.status(401).send({message: "E-mail já existente!"})
         }
-    } catch (error) {
-        response.status(500).send(`Houve algum erro no banco de dados ${error}`);
+
+        else {
+            response.status(201).send({newDesign})
+        }
+    }
+
+    catch (error) {
+        response.status(500).send(`Erro na requisição! ${error}`);
     }
 });
 

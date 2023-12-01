@@ -3,20 +3,16 @@ import db from '../services/findUserServices.js';
 import jwt from '../middlewares/jwt.js';
 
 const routes = express.Router();
-routes.post('/', async (request, response) => {
+routes.get('/:id', async (request, response) => {
     try {
-        // Agora você acessa o token pelo corpo da requisição (request.body)
-        const { token } = request.body;
+        const { id } = request.params;
 
-        // Chame o serviço para verificar o token
-        const { convToken } = await db.token(token);
-        console.log('convToken:', convToken); // Verifique se convToken está presente
-        if (convToken) {
-            // Se houver um tokenValue na resposta, significa que a consulta foi bem-sucedida
-            response.status(200).send({ convToken });
+        const { user } = await db.userFind(id);
+        console.log('usuário:', user);
+        if (user) {
+            response.status(200).send({ user });
         } else {
-            // Se não houver tokenValue, você pode lidar com isso de acordo com sua lógica
-            response.status(404).send({ message: "Token não encontrado" });
+            response.status(404).send({ message: "usúario não encontrado" });
         }
     } catch (error) {
         console.error(error);

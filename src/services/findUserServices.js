@@ -1,9 +1,9 @@
 import banco from '../repository/connection.js';
 
-async function token(token) {
+async function userFind(id) {
   try {
-    const sql = 'SELECT token FROM changes_user WHERE token = ?';
-    const findUser = [token];
+    const sql = 'SELECT * FROM users WHERE id = ?';
+    const findUser = [id];
 
     const conn = await banco.connect();
     const [row] = await conn.query(sql, findUser);
@@ -12,15 +12,15 @@ async function token(token) {
     console.log('Resultado do banco:', row);
 
     if (row.length > 0) {
-      const convToken = row[0].token; 
-      return { convToken };
+      const user = row[0]; 
+      return { user };
     } else {
-      return { message: "Token inválido" };
+      return { message: "usúario inválido" };
     }
   } catch (error) {
     console.error('Erro no serviço db.token:', error);
   }
 }
 
-export default {token};
+export default {userFind};
 

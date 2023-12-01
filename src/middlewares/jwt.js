@@ -1,7 +1,6 @@
-// middleware/authMiddleware.js
 import jwt from "jsonwebtoken";
 
-const secretKey = 'secreto';
+const secretKey = '3Y#vF&6aBpL9!zXs@8WqR4n';
 
 const sign = (payload, expiresIn = '1h') => {
   return jwt.sign(payload, secretKey, { expiresIn });
