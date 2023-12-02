@@ -9,7 +9,7 @@
     "npm": "10.2.0"
   },
   "scripts": {
-    "build": "sucrase ./src -d ./dist --transforms imports && copyfiles ./src/api-doc.json ./dist/",
+    "build": "sucrase ./src -d ./dist --transforms imports && cp ./src/api-doc.json ./dist/",
     "start": "nodemon .dist/index.js"
   },
   "keywords": [],
