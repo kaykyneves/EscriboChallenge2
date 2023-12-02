@@ -1,27 +1,7 @@
-<title>EscriboChallenge2</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-    }
-    h1 {
-      color: #333;
-    }
-    h2 {
-      color: #555;
-    }
-    code {
-      background-color: #f4f4f4;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
-    }
-  </style>
-</head>
+
+ 
 <body>
+
   <h1>EscriboChallenge2</h1>
   <h2>Pré-requisitos</h2>
   <ul>
@@ -34,6 +14,10 @@
     npm install express<br>
     npm install bcrypt<br>
     npm install jsonwebtoken
+  </code>
+  <h2>Iniciar o projeto:</h2>
+  <code>
+   npm start
   </code>
   <h2>Configuração do Banco de Dados MySQL</h2>
   <ol>
