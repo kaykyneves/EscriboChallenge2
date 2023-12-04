@@ -1,6 +1,9 @@
 import banco from '../repository/connection.js';
 
+//criando a função 'userFind' e passando os parâmetros que vem da controller 
 async function userFind(id) {
+
+  //fazendo um SELECT simples passando o 'id'
   try {
     const sql = 'SELECT * FROM users WHERE id = ?';
     const findUser = [id];
@@ -9,16 +12,21 @@ async function userFind(id) {
     const [row] = await conn.query(sql, findUser);
     conn.end();
 
-    console.log('Resultado do banco:', row);
-
+    //se o 'row.length > 0' significa que a consulta recebeu dados
     if (row.length > 0) {
+
+      //aloco o valor na variável 'user'
       const user = row[0]; 
+
+      //retorno a variável
       return { user };
-    } else {
+    } 
+    //retorno uma mensagem padrãp
+    else {
       return { message: "usúario inválido" };
     }
   } catch (error) {
-    console.error('Erro no serviço db.token:', error);
+    console.error('Erro no serviço ', error);
   }
 }
 

@@ -32,9 +32,12 @@
     </li>
   </ol>
   <h2>Rotas</h2>
+
+  <li>Quando fizer a requisição pela primeira vez, por favor tente por um tempo, pois o servidor demora um pouco para responder</li>
+  
   <h3>Cadastro de Usuário</h3>
   <ul>
-    <li><strong>Rota:</strong> <a href="http://localhost:3333/signUp">http://localhost:3333/signUp</a></li>
+    <li><strong>Rota:</strong> <a href="https://escribochallengee.onrender.com/signUp">https://escribochallengee.onrender.com/signUp</a></li>
     <li><strong>Método HTTP:</strong> POST</li>
     <li><strong>Exemplo de Requisição JSON:</strong></li>
   </ul>
@@ -48,7 +51,7 @@
   </code>
   <h3>Login</h3>
   <ul>
-    <li><strong>Rota:</strong> <a href="http://localhost:3333/signIn">http://localhost:3333/signIn</a></li>
+    <li><strong>Rota:</strong> <a href="https://escribochallengee.onrender.com/signIn">https://escribochallengee.onrender.com/signIn</a></li>
     <li><strong>Método HTTP:</strong> POST</li>
     <li><strong>Exemplo de Requisição JSON:</strong></li>
   </ul>
@@ -60,7 +63,7 @@
   </code>
   <h3>Buscar Usuário</h3>
   <ul>
-    <li><strong>Rota:</strong> <a href="http://localhost:3333/findUser/id">http://localhost:3333/findUser/id</a></li>
+    <li><strong>Rota:</strong> <a href="https://escribochallengee.onrender.com/findUser/id">https://escribochallengee.onrender.com/findUser/id</a></li>
     <li><strong>Método HTTP:</strong> GET</li>
     <li><strong>Exemplo de Requisição JSON:</strong></li>
   </ul>
@@ -72,3 +75,6 @@
   <ul>
     <li>Para buscar um usuário, você deve validar o token JWT recebido durante o login ou cadastro.</li>
     <li>Configure o Auth Type (exemplo com INSOMNIA) como BEARER e forneça o token JWT recebido. Se o token for válido, as informações do usuário serão retornadas.</li>
+    
+
+    
